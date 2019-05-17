@@ -135,7 +135,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="WorkoutSPAEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="WorkoutSPAEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="workoutactives" EntityType="Self.workoutactive" />
           <EntitySet Name="workoutcategories" EntityType="Self.workoutcategory" />
           <EntitySet Name="workoutcollections" EntityType="Self.workoutcollection" />
@@ -153,7 +153,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="WorkoutSPAModelStoreContainer" CdmEntityContainer="WorkoutSPAEntities">
+        <EntityContainerMapping StorageEntityContainer="WorkoutSPAModelStoreContainer" CdmEntityContainer="WorkoutSPAEntities1">
           <EntitySetMapping Name="workoutactives">
             <EntityTypeMapping TypeName="WorkoutSPAModel.workoutactive">
               <MappingFragment StoreEntitySet="workoutactive">

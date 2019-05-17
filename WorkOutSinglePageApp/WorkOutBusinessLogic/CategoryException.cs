@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace WorkOutBusinessLogic
 {
-    public class Class1
+   public class CategoryException :ApplicationException
     {
+        
     }
 }
