@@ -9,10 +9,27 @@ namespace WorkOutWebAPI.Controllers
 {
     public class categoryController : ApiController
     {
-        WorkoutSPAEntities1 obj = new WorkoutSPAEntities1();
+        WorkoutSPAEntities1 db = new WorkoutSPAEntities1();
         public IHttpActionResult Get()
         {
-            return Ok(obj.workoutcategories.ToList());
+            return Ok(db.workoutcategories.ToArray());
         }
+        public IHttpActionResult Post(workoutcategory obj)
+        {
+
+            db.workoutcategories.Add(obj);
+            int NoOfRowsAffected = db.SaveChanges();
+            if(NoOfRowsAffected>0)
+            {
+                return StatusCode(HttpStatusCode.Created);
+            }
+            return BadRequest("Failed to Add Category");
+        }
+
+      //  public IHttpActionResult Put(workoutcategory obj)
+        //{
+          //  db.workoutcategories.Attach(obj);
+            //db.Entry(obj).s
+        //}
     }
 }

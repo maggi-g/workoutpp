@@ -1,8 +1,13 @@
-import { Injectable } from '@angular/core';
+
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { workoutcategory } from './Category';
-@Injectable()
+import { Injectable } from '@angular/core';
+
+
+@Injectable() 
+
+
 export class CategoryService {
   private _url = ' http://localhost:53527/api/categories';
    

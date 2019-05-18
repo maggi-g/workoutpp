@@ -10,14 +10,15 @@ namespace WorkOutBusinessLogic.test
     [TestFixture]
     public class viewcategorieslisttest
     {
-        workoutcategory obj;
+        
         [Test]
         public void GetAllCategoriesTest()
         {
+            workoutcategory obj = new workoutcategory();
+            var repo = new CategoryRepository();
             var Expected = 0;
-            var Actual = obj;
+            var Actual = repo.GetAllCategories();
             Assert.AreEqual(Expected, Actual);
-
         }
     }
 }

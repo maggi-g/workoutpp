@@ -7,10 +7,79 @@ namespace WorkOutBusinessLogic
 {
     public class CategoryRepository
     {
-        WorkoutSPAEntities1 db = new WorkoutSPAEntities1();
-        public List<workoutcategory> GetAllCategories()
+      
+        public IEnumerable<workoutcategory> GetAllCategories()
         {
-          return db.workoutcategories.ToList();
+            
+            try
+            {
+                using (var objcontext = new WorkoutSPAEntities1())
+                {
+                    var query = from obj in objcontext.workoutcategories
+                                select obj;
+                    return query.ToArray();
+                }
+                
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+         
+        public void AddCategory(workoutcategory objcategory)
+        {
+            try
+            {
+                using (var objcontext = new WorkoutSPAEntities1())
+                {
+                    objcontext.workoutcategories.Add(objcategory);
+                    objcontext.SaveChanges();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+           
+        }
+
+        public void SearchCategory(string name)
+        {
+            try
+            {
+                using (var objcontext = new WorkoutSPAEntities1())
+                {
+                    var query = (from obj in objcontext.workoutcategories
+                                where obj.categoryname == name
+                                select obj).FirstOrDefault();
+                    
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+
+            }
+        }
+
+
+        public void EditCategory(workoutcategory item)
+        {
+            try
+            {
+                using (var objcontext = new WorkoutSPAEntities1())
+                {
+                    var query = from obj in objcontext.workoutcategories
+                                select obj;
+                    
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
