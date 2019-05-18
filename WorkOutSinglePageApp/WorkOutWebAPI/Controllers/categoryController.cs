@@ -7,7 +7,7 @@ using System.Web.Http;
 using WorkOutBusinessLogic;
 namespace WorkOutWebAPI.Controllers
 {
-    public class categories : ApiController
+    public class categoryController : ApiController
     {
         WorkoutSPAEntities1 obj = new WorkoutSPAEntities1();
         public IHttpActionResult Get()

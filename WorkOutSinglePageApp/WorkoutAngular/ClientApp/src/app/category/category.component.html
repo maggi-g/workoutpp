@@ -1,1 +1,11 @@
-﻿<div style="border: 1px solid red">Category Component</div>
+<table class="table">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let cat of categories">
+    <td>{{cat.categoryid}}</td>
+    <td>{{cat.categoryname}}</td>
+    </tr>
+</table>
