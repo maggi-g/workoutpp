@@ -1,15 +1,15 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { workoutcategory } from './Category';
+import { workoutcategory } from './workoutcategory';
 import { Injectable } from '@angular/core';
 
 
-@Injectable() 
+@Injectable()
 
 
 export class CategoryService {
-  private _url = ' http://localhost:53527/api/categories';
+  private _url = 'http://localhost:53527/api/category';
    
   
   constructor(private http: HttpClient) {
@@ -18,7 +18,11 @@ export class CategoryService {
   getCategory(): Observable<workoutcategory[]> {
     return this.http.get<workoutcategory[]>(this._url);
   }
-    
+  save(cat: workoutcategory) {
+    return this.http.post(this._url, cat);
   }
+    
+}
+
 
 

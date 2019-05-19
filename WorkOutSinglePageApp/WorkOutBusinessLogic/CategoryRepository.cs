@@ -3,24 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 namespace WorkOutBusinessLogic
 {
     public class CategoryRepository
     {
       
-        public IEnumerable<workoutcategory> GetAllCategories()
+        public List<workoutcategory> GetAllCategories()
         {
-            
+            List<workoutcategory> objcategory = new List<workoutcategory>();
             try
             {
-                using (var objcontext = new WorkoutSPAEntities1())
+                using (WorkoutSPAEntities1 objcontext = new WorkoutSPAEntities1())
                 {
                     var query = from obj in objcontext.workoutcategories
                                 select obj;
-                    return query.ToArray();
+                    foreach(var item in query)
+                    {
+                        objcategory.Add(new workoutcategory { categoryid=item.categoryid,categoryname=item.categoryname });
+                    }
                 }
-                
-                
+
+                return objcategory;
             }
             catch (Exception ex)
             {
@@ -72,7 +76,10 @@ namespace WorkOutBusinessLogic
                 using (var objcontext = new WorkoutSPAEntities1())
                 {
                     var query = from obj in objcontext.workoutcategories
-                                select obj;
+                                select new
+                                {
+                                    obj.categoryname
+                                };
                     
                 }
             }

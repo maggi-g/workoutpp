@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
-
+using WorkOutBusinessLogic;
 namespace WorkOutBusinessLogic.test
 {
     [TestFixture]
@@ -14,10 +14,10 @@ namespace WorkOutBusinessLogic.test
         [Test]
         public void GetAllCategoriesTest()
         {
-            workoutcategory obj = new workoutcategory();
-            var repo = new CategoryRepository();
-            var Expected = 0;
-            var Actual = repo.GetAllCategories();
+            CategoryRepository obj = new CategoryRepository();
+            WorkoutSPAEntities1 obj1 = new WorkoutSPAEntities1();
+            var Expected = obj.GetAllCategories();
+            IEnumerable<workoutcategory> Actual =obj.GetAllCategories();
             Assert.AreEqual(Expected, Actual);
         }
     }

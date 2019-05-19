@@ -12,7 +12,8 @@ namespace WorkOutWebAPI.Controllers
         WorkoutSPAEntities1 db = new WorkoutSPAEntities1();
         public IHttpActionResult Get()
         {
-            return Ok(db.workoutcategories.ToArray());
+            
+            return Ok(db.workoutcategories.ToList());
         }
         public IHttpActionResult Post(workoutcategory obj)
         {
