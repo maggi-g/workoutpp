@@ -3,28 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using System.Data.Entity;
 namespace WorkOutBusinessLogic
 {
+    
     public class CategoryRepository
     {
-      
-        public List<workoutcategory> GetAllCategories()
+        WorkoutSPAEntities objcontext;
+        public CategoryRepository()
         {
-            List<workoutcategory> objcategory = new List<workoutcategory>();
+            objcontext = new WorkoutSPAEntities();
+        }
+      
+        public IEnumerable<workoutcategory> GetAllCategories()
+        {
+           
             try
             {
-                using (WorkoutSPAEntities1 objcontext = new WorkoutSPAEntities1())
-                {
-                    var query = from obj in objcontext.workoutcategories
-                                select obj;
-                    foreach(var item in query)
-                    {
-                        objcategory.Add(new workoutcategory { categoryid=item.categoryid,categoryname=item.categoryname });
-                    }
-                }
-
-                return objcategory;
+                var query = from obj in objcontext.workoutcategories
+                            select obj;
+                return query.ToList();
+               
             }
             catch (Exception ex)
             {
@@ -36,7 +36,7 @@ namespace WorkOutBusinessLogic
         {
             try
             {
-                using (var objcontext = new WorkoutSPAEntities1())
+                using (var objcontext = new WorkoutSPAEntities())
                 {
                     objcontext.workoutcategories.Add(objcategory);
                     objcontext.SaveChanges();
@@ -53,7 +53,7 @@ namespace WorkOutBusinessLogic
         {
             try
             {
-                using (var objcontext = new WorkoutSPAEntities1())
+                using (var objcontext = new WorkoutSPAEntities())
                 {
                     var query = (from obj in objcontext.workoutcategories
                                 where obj.categoryname == name
@@ -69,21 +69,21 @@ namespace WorkOutBusinessLogic
         }
 
 
-        public void EditCategory(workoutcategory item)
+        public void EditCategory(workoutcategory objcategory)
         {
             try
             {
-                using (var objcontext = new WorkoutSPAEntities1())
+                using (WorkoutSPAEntities objContext = new WorkoutSPAEntities())
                 {
-                    var query = from obj in objcontext.workoutcategories
-                                select new
-                                {
-                                    obj.categoryname
-                                };
-                    
+
+                    objContext.workoutcategories.Attach(objcategory);
+                    objContext.Entry(objcategory).State = System.Data.Entity.EntityState.Modified;
+                    objContext.SaveChanges();
+
                 }
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }

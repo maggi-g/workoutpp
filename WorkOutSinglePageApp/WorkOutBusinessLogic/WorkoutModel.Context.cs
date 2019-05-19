@@ -13,10 +13,10 @@ namespace WorkOutBusinessLogic
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WorkoutSPAEntities1 : DbContext
+    public partial class WorkoutSPAEntities : DbContext
     {
-        public WorkoutSPAEntities1()
-            : base("name=WorkoutSPAEntities1")
+        public WorkoutSPAEntities()
+            : base("name=WorkoutSPAEntities")
         {
         }
     

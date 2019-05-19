@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, FormGroup, FormControl, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import {  ReactiveFormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
 
@@ -22,26 +22,21 @@ import { AddCategoryComponent } from './add-category/add-category.component';
     CounterComponent,
     FetchDataComponent,
     CategoryComponent,
-    AddCategoryComponent
+    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
-    FormsModule,
-    FormControl,
-    FormBuilder,
-    FormGroup,
-    Validators,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: '', component: CategoryComponent },
-      { path: '', component: AddCategoryComponent }
+      { path: 'category', component: CategoryComponent },
+      { path: 'add-category', component: AddCategoryComponent }
     ])
   ],
   providers: [CategoryService],
-  bootstrap: [CategoryComponent]
+  bootstrap: [AddCategoryComponent]
 })
 export class AppModule { }

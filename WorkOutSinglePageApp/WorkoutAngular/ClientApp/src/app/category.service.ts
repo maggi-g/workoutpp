@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 
 
 export class CategoryService {
-  private _url = 'http://localhost:53527/api/category';
+  private _url = 'http://localhost:62373/api/category';
    
   
   constructor(private http: HttpClient) {

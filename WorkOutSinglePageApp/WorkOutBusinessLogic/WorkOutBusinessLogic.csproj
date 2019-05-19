@@ -54,54 +54,54 @@
     <Compile Include="CategoryRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="workoutactive.cs">
-      <DependentUpon>WorkoutModel.tt</DependentUpon>
+      <DependentUpon>WorkOutModel.tt</DependentUpon>
     </Compile>
     <Compile Include="workoutcategory.cs">
-      <DependentUpon>WorkoutModel.tt</DependentUpon>
+      <DependentUpon>WorkOutModel.tt</DependentUpon>
     </Compile>
     <Compile Include="workoutcollection.cs">
-      <DependentUpon>WorkoutModel.tt</DependentUpon>
+      <DependentUpon>WorkOutModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="WorkoutModel.Context.cs">
+    <Compile Include="WorkOutModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WorkoutModel.Context.tt</DependentUpon>
+      <DependentUpon>WorkOutModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="WorkoutModel.cs">
+    <Compile Include="WorkOutModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WorkoutModel.tt</DependentUpon>
+      <DependentUpon>WorkOutModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="WorkoutModel.Designer.cs">
+    <Compile Include="WorkOutModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WorkoutModel.edmx</DependentUpon>
+      <DependentUpon>WorkOutModel.edmx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <EntityDeploy Include="WorkoutModel.edmx">
+    <EntityDeploy Include="WorkOutModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>WorkoutModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>WorkOutModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="WorkoutModel.edmx.diagram">
-      <DependentUpon>WorkoutModel.edmx</DependentUpon>
+    <None Include="WorkOutModel.edmx.diagram">
+      <DependentUpon>WorkOutModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="WorkoutModel.Context.tt">
+    <Content Include="WorkOutModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WorkoutModel.edmx</DependentUpon>
-      <LastGenOutput>WorkoutModel.Context.cs</LastGenOutput>
+      <DependentUpon>WorkOutModel.edmx</DependentUpon>
+      <LastGenOutput>WorkOutModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="WorkoutModel.tt">
+    <Content Include="WorkOutModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WorkoutModel.edmx</DependentUpon>
-      <LastGenOutput>WorkoutModel.cs</LastGenOutput>
+      <DependentUpon>WorkOutModel.edmx</DependentUpon>
+      <LastGenOutput>WorkOutModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
