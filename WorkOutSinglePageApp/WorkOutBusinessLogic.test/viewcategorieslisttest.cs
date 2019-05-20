@@ -15,9 +15,9 @@ namespace WorkOutBusinessLogic.test
         public void GetAllCategoriesTest()
         {
             CategoryRepository obj = new CategoryRepository();
-            WorkoutSPAEntities1 obj1 = new WorkoutSPAEntities1();
-            var Expected = obj.GetAllCategories();
-            IEnumerable<workoutcategory> Actual =obj.GetAllCategories();
+            
+            int Expected = 3 ;
+            var Actual = obj.GetAllCategories().Count();
             Assert.AreEqual(Expected, Actual);
         }
     }

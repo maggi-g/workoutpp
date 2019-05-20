@@ -10,7 +10,7 @@ import { workoutcategory } from '../workoutcategory';
 /** Category component*/
 export class CategoryComponent implements OnInit {
   /** Category ctor */
-  categories: workoutcategory[];
+  categories: workoutcategory[]
   constructor(private service: CategoryService) {
 
   }
@@ -18,6 +18,14 @@ export class CategoryComponent implements OnInit {
     this.service.getCategory().subscribe(
       (data) => this.categories = data,
         (error)=> alert("Error Processing request")
+    );
+  }
+
+  SaveCategory($event) {
+    console.log($event);
+    this.service.save(new workoutcategory(0, $event)).subscribe(
+      (data) => alert('added'),
+        (error) => alert('Failed to add')
     );
   }
 }

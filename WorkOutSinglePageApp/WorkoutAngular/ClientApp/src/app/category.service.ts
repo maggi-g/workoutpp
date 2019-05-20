@@ -18,9 +18,11 @@ export class CategoryService {
   getCategory(): Observable<workoutcategory[]> {
     return this.http.get<workoutcategory[]>(this._url);
   }
+
   save(cat: workoutcategory) {
     return this.http.post(this._url, cat);
   }
+ 
     
 }
 

@@ -12,7 +12,9 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CategoryService } from './category.service';
 import {CategoryComponent } from './category/category.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AddCategoryComponent } from './add-category/add-category.component';
+import { AddcategoryComponent } from './addcategory/addcategory.component';
+
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { AddCategoryComponent } from './add-category/add-category.component';
     CounterComponent,
     FetchDataComponent,
     CategoryComponent,
-    
+    AddcategoryComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,10 +35,11 @@ import { AddCategoryComponent } from './add-category/add-category.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'category', component: CategoryComponent },
-      { path: 'add-category', component: AddCategoryComponent }
+      { path: 'addcategory', component: AddcategoryComponent }
+      
     ])
   ],
   providers: [CategoryService],
-  bootstrap: [AddCategoryComponent]
+  bootstrap: [CategoryComponent]
 })
 export class AppModule { }
