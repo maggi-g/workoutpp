@@ -22,9 +22,7 @@ export class CategoryService {
   save(cat: workoutcategory) {
     return this.http.post(this._url, cat);
   }
- 
-    
-}
+ }
 
 
 
