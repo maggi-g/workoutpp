@@ -13,8 +13,12 @@ import { CategoryService } from './category.service';
 import {CategoryComponent } from './category/category.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddcategoryComponent } from './addcategory/addcategory.component';
+import { EditcategoryComponent } from './editcategory/editcategory.component';
+import { DeletecategoryComponent } from './deletecategory/deletecategory.component';
 
 
+import { FilterPipe } from './filterpipe';
+import { SearchcategoryComponent } from './searchcategory/searchcategory.component';
 
 @NgModule({
   declarations: [
@@ -24,22 +28,29 @@ import { AddcategoryComponent } from './addcategory/addcategory.component';
     CounterComponent,
     FetchDataComponent,
     CategoryComponent,
-    AddcategoryComponent
+    AddcategoryComponent,
+    EditcategoryComponent,
+    DeletecategoryComponent,
+    SearchcategoryComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     ReactiveFormsModule,
+  
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'category', component: CategoryComponent },
-      { path: 'addcategory', component: AddcategoryComponent }
+      { path: 'addcategory', component: AddcategoryComponent },
+      { path: 'editcategory', component: EditcategoryComponent },
+      { path: 'deletecategory', component: DeletecategoryComponent },
+      { path: 'searchcategory', component: SearchcategoryComponent }
       
     ])
   ],
   providers: [CategoryService],
-  bootstrap: [CategoryComponent]
+  bootstrap: [SearchcategoryComponent]
 })
 export class AppModule { }

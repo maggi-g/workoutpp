@@ -69,17 +69,18 @@ namespace WorkOutBusinessLogic
         }
 
 
-        public void EditCategory(workoutcategory objcategory)
+        public void EditCategory(workoutcategory item)
         {
             try
             {
                 using (WorkoutSPAEntities objContext = new WorkoutSPAEntities())
                 {
 
-                    objContext.workoutcategories.Attach(objcategory);
-                    objContext.Entry(objcategory).State = System.Data.Entity.EntityState.Modified;
+                    var objcategory = (from obj in objContext.workoutcategories
+                                       where obj.categoryid == item.categoryid
+                                       select obj).First();
+                    objcategory.categoryname = item.categoryname;
                     objContext.SaveChanges();
-
                 }
 
             }

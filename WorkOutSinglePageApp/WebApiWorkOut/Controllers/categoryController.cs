@@ -28,5 +28,41 @@ namespace WebApiWorkOut.Controllers
                 return BadRequest("not saved");
             }
         }
+
+
+        public IHttpActionResult Delete(int id)
+        {
+            var obj = db.workoutcategories.Find(id);
+            if(obj==null)
+            {
+                return NotFound();
+            }
+            db.workoutcategories.Remove(obj);
+            var NoOfRowsAffected = db.SaveChanges();
+            if(NoOfRowsAffected>0)
+            {
+                return StatusCode(HttpStatusCode.NoContent);
+            }
+            else
+            {
+                return BadRequest("Failed To Delete");
+            }
+        }
+
+
+        public IHttpActionResult Put(workoutcategory obj)
+        {
+            db.workoutcategories.Attach(obj);
+            db.Entry(obj).State = System.Data.Entity.EntityState.Modified;
+            var NoOfRowsAffected = db.SaveChanges();
+            if(NoOfRowsAffected>0)
+            {
+                return StatusCode(HttpStatusCode.Accepted);
+            }
+            else
+            {
+                return BadRequest("Failed to Edit");
+            }
+        }
     }
 }

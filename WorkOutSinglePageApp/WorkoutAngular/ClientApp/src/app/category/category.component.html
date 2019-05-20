@@ -14,8 +14,8 @@
         <td>{{cat.categoryid}}</td>
         <td>{{cat.categoryname}}</td>
         <td>
-          <a [routerLink]="['/edit-category',cat.id]">Edit</a> |
-          <a [routerLink]="['/delete-category',cat.id]">Delete</a> |
+          <a [routerLink]="['/editcategory',cat.categoryid]">Edit</a> |
+          <a [routerLink]="['/deletecategory',cat.categoryid]">Delete</a> |
         </td>
       </tr>
     </table>
