@@ -14,5 +14,19 @@ namespace WebApiWorkOut.Controllers
         {
             return Ok(db.workoutcategories.ToArray());
         }
+
+        public IHttpActionResult post(workoutcategory obj)
+        {
+            db.workoutcategories.Add(obj);
+            var rows = db.SaveChanges();
+            if (rows > 0)
+            {
+                return StatusCode(HttpStatusCode.Created);
+            }
+            else
+            {
+                return BadRequest("not saved");
+            }
+        }
     }
 }

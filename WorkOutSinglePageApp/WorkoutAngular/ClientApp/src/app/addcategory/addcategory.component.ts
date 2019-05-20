@@ -18,8 +18,7 @@ export class AddcategoryComponent implements OnInit {
 
 ngOnInit() {
   this.frmcat = this.fb.group({
-
-    name: new FormControl('', [Validators.required, Validators.minLength(3)])
+name: new FormControl('', [Validators.required, Validators.minLength(3)])
   });
 }
 
@@ -29,7 +28,7 @@ get f() {
 
 saveForm(frm: NgForm) {
   if (frm.valid) {
-    let cat: workoutcategory = new workoutcategory(frm.value.id, frm.value.name);
+    let cat: workoutcategory = new workoutcategory(frm.value.categoryid, frm.value.categoryname);
     this.service.save(cat).subscribe(
       (data) => alert('Added'),
       (error) => console.log(error)
