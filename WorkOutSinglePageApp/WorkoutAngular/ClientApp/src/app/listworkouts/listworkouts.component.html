@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    
+    <div class="col-md-12">
+      <input type="text" [(ngModel)]="title" name="txt" placeholder="SearchCategory" />
+    </div>
+    <div class="col-md-12">
+      <table>
+        <tr *ngFor="let coll of collections | customfilter:title">
+          <app-editworkout [AddTitle]="coll" (EditAdded)="EditCategory($event)" (Deleted)="Delete($event)"></app-editworkout>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

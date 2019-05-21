@@ -13,6 +13,7 @@ import { CategoryService } from '../category.service';
 export class AddcategoryComponent implements OnInit {
     frmcat: FormGroup;
   @Output() CategoryAdded = new EventEmitter<string>();
+ 
   constructor(private fb: FormBuilder, private service: CategoryService) { }
 
 

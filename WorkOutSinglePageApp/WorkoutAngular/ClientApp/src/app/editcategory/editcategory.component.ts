@@ -31,9 +31,9 @@ export class EditcategoryComponent implements OnInit {
   get f() {
     return this.frmcat.controls;
   } 
-  saveForm(frm: NgForm) {
-    if (frm.valid) {
-      let cat: workoutcategory = new workoutcategory(frm.value.categoryid, frm.value.categoryname);
+  saveForm(frmcat: NgForm) {
+    if (frmcat.valid) {
+      let cat: workoutcategory = new workoutcategory(0,frmcat.categoryname);
       this.service.update(cat).subscribe(
         (data) => alert('Updated'),
         (error) => console.log(error)
@@ -44,12 +44,12 @@ export class EditcategoryComponent implements OnInit {
   }
 
   public Enable(): void {
-    this.f.categoryname.enable();
+    this.f.name.enable();
     this.onclick = true;
   }
 
   public Disabled(): void {
-    this.f.categoryname.disable();
+    this.f.name.disable();
     this.onclick = false;
   }
 }

@@ -36,5 +36,11 @@ export class CategoryComponent implements OnInit {
       (error) => alert('failed to update')
     );
   }
+  Delete($event) {
+    this.service.delete($event).subscribe(
+      (data) => alert('Deleted'),
+      (error) => alert('Failed to delete')
+    );
+  }
 }
 

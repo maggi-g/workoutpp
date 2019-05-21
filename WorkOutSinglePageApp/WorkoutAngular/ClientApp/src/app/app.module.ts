@@ -9,13 +9,19 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { CategoryService } from './category.service';
+
 import {CategoryComponent } from './category/category.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddcategoryComponent } from './addcategory/addcategory.component';
 import { EditcategoryComponent } from './editcategory/editcategory.component';
 import { DeletecategoryComponent } from './deletecategory/deletecategory.component';
 import { FilterPipe } from './filter';
+import { AddworkoutComponent } from './addworkout/addworkout.component';
+import { WorkoutcollectionService } from './workoutcollection.service';
+import { ListworkoutsComponent } from './listworkouts/listworkouts.component';
+import { SearchPipe } from './customfilter';
+import { EditworkoutComponent } from './editworkout/editworkout.component';
+import { CategoryService } from './category.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,8 +33,11 @@ import { FilterPipe } from './filter';
     AddcategoryComponent,
     EditcategoryComponent,
     DeletecategoryComponent,
-  
-    FilterPipe
+    AddworkoutComponent,
+    ListworkoutsComponent,
+    EditworkoutComponent,
+    FilterPipe,
+    SearchPipe
     
   ],
   imports: [
@@ -44,8 +53,9 @@ import { FilterPipe } from './filter';
       { path: 'addcategory', component: AddcategoryComponent },
       { path: 'editcategory', component: EditcategoryComponent },
       { path: 'deletecategory', component: DeletecategoryComponent },
-     
-      
+      { path: 'addworkout', component: AddworkoutComponent },
+      { path: 'editworkout', component: EditworkoutComponent },
+      { path: 'listworkouts', component: ListworkoutsComponent }
     ])
   ],
   providers: [CategoryService],
