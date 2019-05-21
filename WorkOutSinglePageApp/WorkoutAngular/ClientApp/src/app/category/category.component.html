@@ -3,24 +3,18 @@
     <div class="col-md-12">
       <app-addcategory (CategoryAdded)="SaveCategory($event)"></app-addcategory>
     </div>
-    <div class="col-md-12">
-    <table class="table">
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th></th>
-      </tr>
-      <tr *ngFor="let cat of categories">
-        <td>{{cat.categoryid}}</td>
-        <td>{{cat.categoryname}}</td>
-        <td>
-          <a [routerLink]="['/editcategory',cat.categoryid]">Edit</a> |
-          <a [routerLink]="['/deletecategory',cat.categoryid]">Delete</a> |
-        </td>
-      </tr>
-    </table>
-      </div>
+    <div>
+      <input type="text" [(ngModel)]="searchterm" name="txt" placeholder="SearchCategory" />
     </div>
-  </div>
+    <div class="col-md-12">
+      <table>
+        <tr *ngFor="let cat of categories | filter:searchterm">
+      <app-editcategory [AddName]="cat" (EditAdded)="EditCategory($event)" (Deleted) ="Delete($event)"></app-editcategory>
+          </tr>
+        </table>
+    </div>
+     </div>
+    </div>
+  
 
 

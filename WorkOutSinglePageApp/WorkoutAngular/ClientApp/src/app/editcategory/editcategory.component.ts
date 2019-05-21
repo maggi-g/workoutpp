@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { CategoryService } from '../category.service';
@@ -13,25 +13,27 @@ import { workoutcategory } from '../workoutcategory';
 /** editcategory component*/
 export class EditcategoryComponent implements OnInit {
   /** editcategory ctor */
-  public click: boolean = true;
+  public onclick: boolean = false;
   frmcat: FormGroup;
   @Input() AddName: workoutcategory;
-
+  @Output() EditAdded = new EventEmitter<workoutcategory>();
+  @Output() Deleted = new EventEmitter<workoutcategory>();
   constructor(private currentRoute: ActivatedRoute, private service: CategoryService, private fb: FormBuilder) { }
-  get f() {
-    return this.frmcat.controls;
-  }
+
+ 
   ngOnInit() {
     this.frmcat = this.fb.group({
       name: new FormControl(this.AddName.categoryname, [Validators.required, Validators.minLength(3)])
     });
 
-    let id = this.currentRoute.snapshot.paramMap.get('id');
+    let id = this.currentRoute.snapshot.paramMap.get('categoryid');
   }
-
+  get f() {
+    return this.frmcat.controls;
+  } 
   saveForm(frm: NgForm) {
     if (frm.valid) {
-      let cat: workoutcategory = new workoutcategory(frm.value.id, frm.value.name);
+      let cat: workoutcategory = new workoutcategory(frm.value.categoryid, frm.value.categoryname);
       this.service.update(cat).subscribe(
         (data) => alert('Updated'),
         (error) => console.log(error)
@@ -42,10 +44,12 @@ export class EditcategoryComponent implements OnInit {
   }
 
   public Enable(): void {
-    this.f.name.enable();
+    this.f.categoryname.enable();
+    this.onclick = true;
   }
 
   public Disabled(): void {
-    this.f.name.disable();
+    this.f.categoryname.disable();
+    this.onclick = false;
   }
 }

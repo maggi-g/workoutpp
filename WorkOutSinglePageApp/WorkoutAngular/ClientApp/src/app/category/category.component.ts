@@ -10,6 +10,7 @@ import { workoutcategory } from '../workoutcategory';
 /** Category component*/
 export class CategoryComponent implements OnInit {
   /** Category ctor */
+  searchterm: string = '';
   categories: workoutcategory[]
   constructor(private service: CategoryService) {
 
@@ -28,4 +29,12 @@ export class CategoryComponent implements OnInit {
         (error) => alert('Failed to add')
     );
   }
+
+  EditCategory($event) {
+    this.service.update($event).subscribe(
+      (data) => alert('updated'),
+      (error) => alert('failed to update')
+    );
+  }
 }
+

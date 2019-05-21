@@ -5,9 +5,8 @@
       Category Name is required
     </div>
     <br />
-
-    <button type="submit" class="btn btn-success btn-lg" (click)="Enable()" [hidden]="click">Edit</button>
-    <button type="submit" class="btn btn-primary btn-lg" (click)="Disabled()" [hidden]="click">Update</button>
+    <button type="submit" class="btn btn-success btn-lg" (click)="Enable()" [hidden]="onclick">Edit</button>
+    <button type="submit" class="btn btn-primary btn-lg" (click)="Disabled()" [hidden]="!onclick" (ngSubmit)="saveForm(frmcat)">Update</button>
     <button type="submit" class="btn btn-danger btn-lg">Delete</button>
 
     <div *ngIf="f.name.invalid && f.name.dirty && f.name.errors?.minlength" class="invalid-feedback">

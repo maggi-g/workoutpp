@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {  ReactiveFormsModule } from '@angular/forms';
+import {  ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
 
@@ -15,11 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddcategoryComponent } from './addcategory/addcategory.component';
 import { EditcategoryComponent } from './editcategory/editcategory.component';
 import { DeletecategoryComponent } from './deletecategory/deletecategory.component';
-
-
-import { FilterPipe } from './filterpipe';
-import { SearchcategoryComponent } from './searchcategory/searchcategory.component';
-
+import { FilterPipe } from './filter';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,13 +27,15 @@ import { SearchcategoryComponent } from './searchcategory/searchcategory.compone
     AddcategoryComponent,
     EditcategoryComponent,
     DeletecategoryComponent,
-    SearchcategoryComponent
+  
+    FilterPipe
+    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     ReactiveFormsModule,
-  
+    FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
@@ -46,11 +44,11 @@ import { SearchcategoryComponent } from './searchcategory/searchcategory.compone
       { path: 'addcategory', component: AddcategoryComponent },
       { path: 'editcategory', component: EditcategoryComponent },
       { path: 'deletecategory', component: DeletecategoryComponent },
-      { path: 'searchcategory', component: SearchcategoryComponent }
+     
       
     ])
   ],
   providers: [CategoryService],
-  bootstrap: [SearchcategoryComponent]
+  bootstrap: [CategoryComponent]
 })
 export class AppModule { }

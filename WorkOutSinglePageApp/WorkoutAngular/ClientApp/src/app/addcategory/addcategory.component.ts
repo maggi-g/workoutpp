@@ -28,7 +28,7 @@ get f() {
 
 saveForm(frm: NgForm) {
   if (frm.valid) {
-    let cat: workoutcategory = new workoutcategory(frm.value.categoryid, frm.value.categoryname);
+    let cat: workoutcategory = new workoutcategory(frm.value.id, frm.value.name);
     this.service.save(cat).subscribe(
       (data) => alert('Added'),
       (error) => console.log(error)
