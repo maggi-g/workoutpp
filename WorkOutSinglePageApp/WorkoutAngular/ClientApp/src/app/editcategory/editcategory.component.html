@@ -1,16 +1,19 @@
-<form novalidate [formGroup]="frmcat" class="form-inline">
+<form novalidate [formGroup]="frmcat" class="form-inline" (ngSubmit)="saveForm(frmcat)">
+  <input type="hidden" formControlName="id"/>
   <div class="form-group col-md-12">
-    <input type="text" name="name" id="name" formControlName="name" class="form-control" [ngClass]="{'is-valid':f.name.valid,'is-invalid':f.name.invalid && f.name.dirty}">
-    <div *ngIf="f.name.invaild && f.name.dirty && f.name.errors?.required" class="invalid-feedback">
+    <input type="text" name="catname" id="catname" formControlName="catname" class="form-control" [ngClass]="{'is-valid':f.catname.valid,'is-invalid':f.catname.invalid && f.catname.dirty}">
+    <div *ngIf="f.catname.invaild && f.catname.dirty && f.catname.errors?.required" class="invalid-feedback">
       Category Name is required
     </div>
-    <br />
-    <button type="submit" class="btn btn-success btn-lg" (click)="Enable()" [hidden]="onclick">Edit</button>
-    <button type="submit" class="btn btn-primary btn-lg" (click)="Disabled()" [hidden]="!onclick" (ngSubmit)="saveForm(frmcat)">Update</button>
-    <button type="submit" class="btn btn-danger btn-lg">Delete</button>
 
-    <div *ngIf="f.name.invalid && f.name.dirty && f.name.errors?.minlength" class="invalid-feedback">
-      Minimun 3 Characters
+    <br />
+    <button type="button" class="btn btn-success btn-lg" (click)="Enable()" [hidden]="onclick">Edit</button>
+    <button type="submit" class="btn btn-primary btn-lg"  [hidden]="!onclick" >Update</button>
+    <button type="button" class="btn btn-danger btn-lg" (click)="Delete(frmcat)">Delete</button>
+
+    <div *ngIf="f.catname.invalid && f.catname.dirty && f.catname.errors?.minlength" class="invalid-feedback">
+      Minimun 9 Characters
     </div>
     </div>
 </form>
+

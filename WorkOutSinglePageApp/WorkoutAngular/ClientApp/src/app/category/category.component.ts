@@ -31,13 +31,14 @@ export class CategoryComponent implements OnInit {
   }
 
   EditCategory($event) {
+    console.log($event);
     this.service.update($event).subscribe(
       (data) => alert('updated'),
       (error) => alert('failed to update')
     );
   }
   Delete($event) {
-    this.service.delete($event).subscribe(
+    this.service.delete($event.categoryid).subscribe(
       (data) => alert('Deleted'),
       (error) => alert('Failed to delete')
     );

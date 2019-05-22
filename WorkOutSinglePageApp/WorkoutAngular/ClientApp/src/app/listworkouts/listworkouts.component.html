@@ -7,7 +7,7 @@
     <div class="col-md-12">
       <table>
         <tr *ngFor="let coll of collections | customfilter:title">
-          <app-editworkout [AddTitle]="coll" (EditAdded)="EditCategory($event)" (Deleted)="Delete($event)"></app-editworkout>
+          <app-editworkout [AddTitle]="coll" (EditAdded)="EditWorkout($event)" (Deleted)="DeleteWorkout($event)"></app-editworkout>
         </tr>
       </table>
     </div>

@@ -11,9 +11,7 @@ import { WorkoutcollectionService } from '../workoutcollection.service';
 /** editworkout component*/
 export class EditworkoutComponent implements OnInit{
     /** editworkout ctor */
-    
-
-    public onclick: boolean = false;
+  public onclick: boolean = false;
   frmcoll: FormGroup;
   @Input() AddTitle: workoutcollections;
   @Output() EditAdded = new EventEmitter<workoutcollections>();
@@ -28,14 +26,19 @@ export class EditworkoutComponent implements OnInit{
   get f() {
     return this.frmcoll.controls;
   }
-  saveForm(frmcoll: NgForm) {
-    if (frmcoll.valid) {
-      let coll: workoutcollections = new workoutcollections(frmcoll.value.title, frmcoll.value.Note, frmcoll.value.caloriesburnperminute);
+  saveForm(frm: NgForm) {
+    if (frm.valid) {
+      let coll: workoutcollections = new workoutcollections(frm.value.Title, frm.value.Note, frm.value.count,
+        frm.value.Category, frm.value.categoryid, frm.value.workoutid);
       this.service.update(coll).subscribe(
         (data) => alert('Updated'),
         (error) => console.log(error)
+        
 
       );
+      this.EditAdded.emit(coll);
+      this.f.title.disable();
+      this.onclick = false;
     }
   }
     public Enable(): void {
@@ -48,3 +51,5 @@ export class EditworkoutComponent implements OnInit{
     this.onclick = false;
   }
 }
+
+

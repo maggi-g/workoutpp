@@ -5,16 +5,12 @@ import {  ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
-
 import {CategoryComponent } from './category/category.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddcategoryComponent } from './addcategory/addcategory.component';
 import { EditcategoryComponent } from './editcategory/editcategory.component';
-import { DeletecategoryComponent } from './deletecategory/deletecategory.component';
+
 import { FilterPipe } from './filter';
 import { AddworkoutComponent } from './addworkout/addworkout.component';
 import { WorkoutcollectionService } from './workoutcollection.service';
@@ -25,14 +21,13 @@ import { CategoryService } from './category.service';
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
-    HomeComponent,
+  
     CounterComponent,
-    FetchDataComponent,
+  
     CategoryComponent,
     AddcategoryComponent,
     EditcategoryComponent,
-    DeletecategoryComponent,
+    
     AddworkoutComponent,
     ListworkoutsComponent,
     EditworkoutComponent,
@@ -46,19 +41,19 @@ import { CategoryService } from './category.service';
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+     { path: 'counter', component: CounterComponent },
+      
       { path: 'category', component: CategoryComponent },
       { path: 'addcategory', component: AddcategoryComponent },
       { path: 'editcategory', component: EditcategoryComponent },
-      { path: 'deletecategory', component: DeletecategoryComponent },
-      { path: 'addworkout', component: AddworkoutComponent },
+     { path: 'addworkout', component: AddworkoutComponent },
       { path: 'editworkout', component: EditworkoutComponent },
       { path: 'listworkouts', component: ListworkoutsComponent }
     ])
   ],
-  providers: [CategoryService],
-  bootstrap: [CategoryComponent]
+  providers: [WorkoutcollectionService, CategoryService],
+  bootstrap: [add]
 })
 export class AppModule { }
+
+

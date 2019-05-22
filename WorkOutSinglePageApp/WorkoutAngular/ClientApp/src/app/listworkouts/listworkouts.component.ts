@@ -21,8 +21,14 @@ export class ListworkoutsComponent implements OnInit {
       (error) => alert("Error Processing request")
     );
   }
-  EditCategory($event) {
+  EditWorkout($event) {
     this.service.update($event).subscribe(
+      (data) => alert('updated'),
+      (error) => alert('failed to update')
+    );
+  }
+  DeleteWorkout($event) {
+    this.service.update($event.workoutid).subscribe(
       (data) => alert('updated'),
       (error) => alert('failed to update')
     );

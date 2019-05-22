@@ -52,7 +52,7 @@ export class AddworkoutComponent implements OnInit {
   saveForm(frm: NgForm) {
     if (frm.valid) {
       let coll: workoutcollections = new workoutcollections(frm.value.Title, frm.value.Note,
-        frm.value.Calory);
+        frm.value.count, frm.value.Category, frm.value.categoryid,frm.value.workoutid);
       
       this.service1.save(coll).subscribe(
         (data) => alert('Added'),

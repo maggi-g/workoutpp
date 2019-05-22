@@ -1,14 +1,16 @@
-<form novalidate [formGroup]="frmcoll" class="form-inline">
+<form novalidate [formGroup]="frmcoll" class="form-inline" (ngSubmit)="saveForm(frmcoll)">
   <div class="form-group col-md-12">
     <input type="text" name="title" id="title" formControlName="title" class="form-control" [ngClass]="{'is-valid':f.title.valid,'is-invalid':f.title.invalid && f.title.dirty}">
     <div *ngIf="f.title.invaild && f.title.dirty && f.title.errors?.required" class="invalid-feedback">
       Title is required
     </div>
+   
     <br />
-    <button type="submit" class="btn btn-success btn-lg" (click)="Enable()" [hidden]="onclick">Edit</button>
-    <button type="submit" class="btn btn-primary btn-lg" (click)="Disabled()" [hidden]="!onclick" (ngSubmit)="saveForm(frmcoll)">Update</button>
-    <button type="submit" class="btn btn-danger btn-lg">Delete</button>
-
+    <div class="form-group form-inline col-md-12">
+    <button type="button" class="btn btn-success btn-lg" (click)="Enable()" [hidden]="onclick">Edit</button>
+    <button type="submit" class="btn btn-primary btn-lg" (click)="Disabled()" [hidden]="!onclick">Update</button>
+    <button type="button" class="btn btn-danger btn-lg" (click)="Delete(frm)">Delete</button>
+      </div>
     <div *ngIf="f.title.invalid && f.title.dirty && f.title.errors?.minlength" class="invalid-feedback">
       Minimun 3 Characters
     </div>

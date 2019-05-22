@@ -23,33 +23,35 @@ export class EditcategoryComponent implements OnInit {
  
   ngOnInit() {
     this.frmcat = this.fb.group({
-      name: new FormControl(this.AddName.categoryname, [Validators.required, Validators.minLength(3)])
+      catname: new FormControl(this.AddName.categoryname, [Validators.required, Validators.minLength(9)]),
+      id: new FormControl(this.AddName.categoryid)
     });
 
-    let id = this.currentRoute.snapshot.paramMap.get('categoryid');
+    this.f.catname.disable();
   }
   get f() {
     return this.frmcat.controls;
   } 
-  saveForm(frmcat: NgForm) {
-    if (frmcat.valid) {
-      let cat: workoutcategory = new workoutcategory(0,frmcat.categoryname);
-      this.service.update(cat).subscribe(
-        (data) => alert('Updated'),
-        (error) => console.log(error)
-
-      );
+  saveForm(frm: NgForm) {
+    if (frm.valid) {
+      console.log(frm.value);
+      let cat: workoutcategory = new workoutcategory(frm.value.id, frm.value.catname);     
+      this.EditAdded.emit(cat);
+      this.f.catname.disable();
+      this.onclick = false;
     }
 
   }
+  Delete(frm) {
+    let cat: workoutcategory = new workoutcategory(frm.value.id, frm.value.catname);  
+    this.service.delete(frm.value.catname);
+    this.Deleted.emit(cat);
+  }
 
   public Enable(): void {
-    this.f.name.enable();
+    this.f.catname.enable();
     this.onclick = true;
   }
-
-  public Disabled(): void {
-    this.f.name.disable();
-    this.onclick = false;
-  }
+ 
+  
 }
