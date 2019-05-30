@@ -14,6 +14,7 @@ export class EditworkoutComponent implements OnInit{
   public onclick: boolean = false;
   frmcoll: FormGroup;
   @Input() AddTitle: workoutcollections;
+
   @Output() EditAdded = new EventEmitter<workoutcollections>();
   @Output() Deleted = new EventEmitter<workoutcollections>();
   constructor(private currentRoute: ActivatedRoute, private service: WorkoutcollectionService, private fb: FormBuilder) { }

@@ -52,7 +52,7 @@ import { CategoryService } from './category.service';
     ])
   ],
   providers: [WorkoutcollectionService, CategoryService],
-  bootstrap: [add]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
 
