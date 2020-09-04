@@ -41,7 +41,7 @@
   "license": "MIT",
   "name": "WorkoutAngular",
   "optionalDependencies": {
-    "node-sass": "^4.9.0"
+    "node-sass": "^4.13.1"
   },
   "private": true,
   "scripts": {
